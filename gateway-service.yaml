@@ -10,6 +10,11 @@ spring:
       server:
         webmvc:
           routes:
+            - id: gateway-service
+              uri: lb://gateway-service
+              predicates:
+                - Path=/api/v1/authenticate
+
             - id: customer-service
               uri: lb://customer-service
               predicates:
