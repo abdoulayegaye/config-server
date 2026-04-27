@@ -1,4 +1,10 @@
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.auth-server-url}/realms/${keycloak.realm}
+
   cloud:
     gateway:
       server:
@@ -26,3 +32,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+keycloak:
+  auth-server-url: http://localhost:8180
+  realm: ebanking-realm
+  client-id: ebanking-client
+  client-secret: AUkrcM7GxZwYJXaMsUETXviacRjoLHge
